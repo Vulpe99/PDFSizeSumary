@@ -75,32 +75,32 @@ namespace SizeSumForPdf
 
                         if (standardPaper.ContainsKey(rectLatime))
                         {
-                            if (rectLatime == 210 && rectLungime == 297)
+                            if ((rectLatime > 209 && rectLatime < 217) && (rectLungime >260 && rectLungime <300))
                             {
                                 standardPaper[rectLatime] += 1;
                             }
-                            else if (rectLatime == 297 && rectLungime == 420)
+                            else if ((rectLatime > 280 && rectLatime < 305) && (rectLungime > 400 && rectLungime < 430))
                             {
                                 standardPaper[rectLatime] += 1;
                             }
-                            else if (rectLatime == 297 && rectLungime > 430)
+                            else if ((rectLatime > 280 && rectLatime < 305) && rectLungime > 440)
                             {
-                                standardPaper[9999] += rectLatime;
+                                standardPaper[9999] += rectLungime;
                             }
                             else standardPaper[rectLatime] += rectLungime;
                         }
                         else
                         {
-                            if (rectLatime == 210 && rectLungime == 297)
+                            if ((rectLatime > 209 && rectLatime < 217) && (rectLungime > 260 && rectLungime < 300))
                             {
                                 standardPaper.Add(rectLatime, 1);
                             }
-                            else if (rectLatime == 297 && rectLungime == 420)
+                            else if ((rectLatime > 280 && rectLatime < 305) && (rectLungime > 400 && rectLungime < 430))
                             {
                                 standardPaper.Add(rectLatime, 1);
-                            } else if (rectLatime == 297 && rectLungime > 430)
+                            } else if ((rectLatime > 280 && rectLatime < 305) && rectLungime > 440)
                             {
-                                standardPaper.Add(9999, rectLatime);
+                                standardPaper.Add(9999, rectLungime);
                             }
                             else standardPaper.Add(rectLatime, rectLungime);
                         }
@@ -110,44 +110,36 @@ namespace SizeSumForPdf
 
             foreach (KeyValuePair<int, int> item in standardPaper)
             {
-                switch (item.Key)
+                if (item.Key > 209 && item.Key < 217)
                 {
-                    case 211:
-                    case 210:
-                    case 209:
-                        textBox_a4.Text += item.Value.ToString();
-                        break;
-                    case 298:
-                    case 297:
-                    case 296:
-                        textBox_a3.Text += item.Value.ToString();
-                        break;
-                    case 421:
-                    case 420:
-                    case 419:
-                        textBox_a2.Text += ((float)item.Value / 1000).ToString() + " + ";
-                        break;
-                    case 595:
-                    case 594:
-                    case 593:
-                        textBox_a1.Text += ((float)item.Value / 1000).ToString() + " + ";
-                        break;
-                    case 842:
-                    case 841:
-                    case 840:
-                        textBox_a0.Text += ((float)item.Value / 1000).ToString() + " + ";
-                        break;
-                    case 915:
-                    case 914:
-                    case 913:
-                        textBox_a0plus.Text += ((float)item.Value / 1000).ToString() + " + ";
-                        break;
-                    case 9999:
-                        textBox_a3Rola.Text += ((float)item.Value / 1000).ToString() + " + ";
-                        break;
-                    default:
-                        otherSizesTextbox.Text += $"{item.Key}mm x {(float)item.Value / 1000}m \n";
-                        break;
+                    textBox_a4.Text += item.Value.ToString() + " + ";
+                }
+                else if (item.Key > 280 && item.Key < 305)
+                {
+                    textBox_a3.Text += item.Value.ToString() + " + ";
+                }
+                else if (item.Key == 9999)
+                {
+                    textBox_a3Rola.Text += ((float)item.Value / 1000).ToString() + " + ";
+                }
+                else if (item.Key > 412 && item.Key < 435)
+                {
+                    textBox_a2.Text += ((float)item.Value / 1000).ToString() + " + ";
+                }
+                else if (item.Key > 570 && item.Key < 599)
+                {
+                    textBox_a1.Text += ((float)item.Value / 1000).ToString() + " + ";
+                }
+                else if (item.Key > 800 && item.Key < 855)
+                {
+                    textBox_a0.Text += ((float)item.Value / 1000).ToString() + " + ";
+                }
+                else if (item.Key > 856 && item.Key < 920)
+                {
+                    textBox_a0plus.Text += ((float)item.Value / 1000).ToString() + " + ";
+                } else
+                {
+                    otherSizesTextbox.Text += $"{item.Key}mm x {(float)item.Value / 1000}m \n";
                 }
             }
 
@@ -173,10 +165,24 @@ namespace SizeSumForPdf
         private void button3_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder(standardPaper.Count * 5);
+            string rand = "";
             sb.AppendLine("Page size\tLength (m)");
             foreach (KeyValuePair<int, int> kvp in standardPaper)
             {
-                string rand = kvp.Key + "\t" + kvp.Value;
+                if (kvp.Key==210)
+                {
+                    rand = "A4" + "\t" + kvp.Value; 
+                } else if(kvp.Key==297)
+                {
+                    rand = "A3" + "\t" + kvp.Value;
+                } else if(kvp.Key==9999)
+                {
+                    rand = "A3 rola" + "\t" + kvp.Value;
+                }
+                else
+                { 
+                rand = kvp.Key + "\t" + (float)kvp.Value/1000;
+                }
                 sb.AppendLine(rand);
             }
             if (sb.Length > 0)
@@ -199,6 +205,7 @@ namespace SizeSumForPdf
             otherSizesTextbox.Clear();
             textBox_a4.Clear();
             textBox_a3.Clear();
+            textBox_a3Rola.Clear();
             textBox_a2.Clear();
             textBox_a1.Clear();
             textBox_a0.Clear();

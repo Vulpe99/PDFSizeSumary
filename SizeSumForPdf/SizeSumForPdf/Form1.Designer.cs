@@ -34,11 +34,11 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_a0 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_a1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox_a2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_a0plus = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,6 +62,13 @@
             this.fileNamesTextbox = new System.Windows.Forms.RichTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.pagesLabel = new System.Windows.Forms.Label();
+            this.filesLabel = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox_a3Rola = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -96,7 +103,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(88, 228);
+            this.label7.Location = new System.Drawing.Point(88, 239);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 15);
             this.label7.TabIndex = 6;
@@ -104,13 +111,16 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.textBox_a3Rola);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.textBox3);
+            this.panel2.Controls.Add(this.textBox_a2);
             this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.textBox_a1);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label3);
@@ -126,19 +136,22 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.textBox_a0plus);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.textBox_a0);
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(255, 433);
             this.panel2.TabIndex = 13;
             // 
-            // textBox1
+            // textBox_a0
             // 
-            this.textBox1.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(114, 119);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(80, 20);
-            this.textBox1.TabIndex = 7;
+            this.textBox_a0.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox_a0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_a0.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_a0.Location = new System.Drawing.Point(114, 119);
+            this.textBox_a0.Name = "textBox_a0";
+            this.textBox_a0.ReadOnly = true;
+            this.textBox_a0.Size = new System.Drawing.Size(80, 20);
+            this.textBox_a0.TabIndex = 7;
             // 
             // label5
             // 
@@ -150,13 +163,16 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "A3 (297x420mm)";
             // 
-            // textBox2
+            // textBox_a1
             // 
-            this.textBox2.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(114, 147);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(80, 20);
-            this.textBox2.TabIndex = 8;
+            this.textBox_a1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox_a1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_a1.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_a1.Location = new System.Drawing.Point(114, 147);
+            this.textBox_a1.Name = "textBox_a1";
+            this.textBox_a1.ReadOnly = true;
+            this.textBox_a1.Size = new System.Drawing.Size(80, 20);
+            this.textBox_a1.TabIndex = 8;
             // 
             // label4
             // 
@@ -168,13 +184,16 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "A2 (420mm)";
             // 
-            // textBox3
+            // textBox_a2
             // 
-            this.textBox3.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(114, 175);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(80, 20);
-            this.textBox3.TabIndex = 9;
+            this.textBox_a2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox_a2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_a2.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_a2.Location = new System.Drawing.Point(114, 175);
+            this.textBox_a2.Name = "textBox_a2";
+            this.textBox_a2.ReadOnly = true;
+            this.textBox_a2.Size = new System.Drawing.Size(80, 20);
+            this.textBox_a2.TabIndex = 9;
             // 
             // label3
             // 
@@ -188,9 +207,12 @@
             // 
             // textBox_a0plus
             // 
+            this.textBox_a0plus.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox_a0plus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_a0plus.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_a0plus.Location = new System.Drawing.Point(114, 91);
             this.textBox_a0plus.Name = "textBox_a0plus";
+            this.textBox_a0plus.ReadOnly = true;
             this.textBox_a0plus.Size = new System.Drawing.Size(80, 20);
             this.textBox_a0plus.TabIndex = 10;
             // 
@@ -206,9 +228,12 @@
             // 
             // textBox_a3
             // 
+            this.textBox_a3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox_a3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_a3.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_a3.Location = new System.Drawing.Point(114, 63);
             this.textBox_a3.Name = "textBox_a3";
+            this.textBox_a3.ReadOnly = true;
             this.textBox_a3.Size = new System.Drawing.Size(80, 20);
             this.textBox_a3.TabIndex = 11;
             // 
@@ -224,9 +249,12 @@
             // 
             // textBox_a4
             // 
+            this.textBox_a4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox_a4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_a4.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_a4.Location = new System.Drawing.Point(114, 35);
             this.textBox_a4.Name = "textBox_a4";
+            this.textBox_a4.ReadOnly = true;
             this.textBox_a4.Size = new System.Drawing.Size(80, 20);
             this.textBox_a4.TabIndex = 12;
             // 
@@ -254,7 +282,7 @@
             this.otherSizesTextbox.BackColor = System.Drawing.SystemColors.Window;
             this.otherSizesTextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.otherSizesTextbox.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.otherSizesTextbox.Location = new System.Drawing.Point(8, 249);
+            this.otherSizesTextbox.Location = new System.Drawing.Point(8, 260);
             this.otherSizesTextbox.Name = "otherSizesTextbox";
             this.otherSizesTextbox.ReadOnly = true;
             this.otherSizesTextbox.Size = new System.Drawing.Size(238, 113);
@@ -296,7 +324,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(8, 376);
+            this.button3.Location = new System.Drawing.Point(8, 387);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(132, 41);
             this.button3.TabIndex = 15;
@@ -366,7 +394,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(146, 376);
+            this.button4.Location = new System.Drawing.Point(146, 387);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 41);
             this.button4.TabIndex = 22;
@@ -381,13 +409,17 @@
             this.fileNamesTextbox.Location = new System.Drawing.Point(3, 57);
             this.fileNamesTextbox.Name = "fileNamesTextbox";
             this.fileNamesTextbox.ReadOnly = true;
-            this.fileNamesTextbox.Size = new System.Drawing.Size(374, 360);
+            this.fileNamesTextbox.Size = new System.Drawing.Size(374, 305);
             this.fileNamesTextbox.TabIndex = 15;
             this.fileNamesTextbox.Text = "";
             this.fileNamesTextbox.WordWrap = false;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label17);
+            this.panel3.Controls.Add(this.filesLabel);
+            this.panel3.Controls.Add(this.pagesLabel);
+            this.panel3.Controls.Add(this.label15);
             this.panel3.Controls.Add(this.button5);
             this.panel3.Controls.Add(this.button2);
             this.panel3.Controls.Add(this.fileNamesTextbox);
@@ -406,6 +438,77 @@
             this.button5.TabIndex = 16;
             this.button5.Text = "Clear";
             this.button5.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(131, 376);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(74, 15);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Total files:";
+            // 
+            // pagesLabel
+            // 
+            this.pagesLabel.AutoSize = true;
+            this.pagesLabel.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pagesLabel.Location = new System.Drawing.Point(207, 402);
+            this.pagesLabel.Name = "pagesLabel";
+            this.pagesLabel.Size = new System.Drawing.Size(15, 15);
+            this.pagesLabel.TabIndex = 18;
+            this.pagesLabel.Text = "0";
+            // 
+            // filesLabel
+            // 
+            this.filesLabel.AutoSize = true;
+            this.filesLabel.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filesLabel.Location = new System.Drawing.Point(207, 376);
+            this.filesLabel.Name = "filesLabel";
+            this.filesLabel.Size = new System.Drawing.Size(15, 15);
+            this.filesLabel.TabIndex = 19;
+            this.filesLabel.Text = "0";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(121, 402);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(84, 15);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "Total pages:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(200, 204);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(42, 12);
+            this.label16.TabIndex = 25;
+            this.label16.Text = "meters";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(26, 204);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(72, 12);
+            this.label18.TabIndex = 23;
+            this.label18.Text = "A3 (297mm)";
+            // 
+            // textBox_a3Rola
+            // 
+            this.textBox_a3Rola.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.textBox_a3Rola.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_a3Rola.Font = new System.Drawing.Font("Lucida Sans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_a3Rola.Location = new System.Drawing.Point(114, 201);
+            this.textBox_a3Rola.Name = "textBox_a3Rola";
+            this.textBox_a3Rola.ReadOnly = true;
+            this.textBox_a3Rola.Size = new System.Drawing.Size(80, 20);
+            this.textBox_a3Rola.TabIndex = 24;
             // 
             // Form1
             // 
@@ -427,6 +530,7 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -455,11 +559,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_a0plus;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox_a2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_a1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_a0;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -467,6 +571,13 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RichTextBox fileNamesTextbox;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label filesLabel;
+        private System.Windows.Forms.Label pagesLabel;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox_a3Rola;
     }
 }
 

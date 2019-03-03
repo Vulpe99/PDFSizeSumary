@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using iTextSharp.text.pdf;
+//TODO: Add comments for all code chunks;
 
 namespace SizeSumForPdf
 {
@@ -17,6 +18,7 @@ namespace SizeSumForPdf
         public Form1()
         {
             InitializeComponent();
+
 
         }
 
@@ -32,9 +34,13 @@ namespace SizeSumForPdf
         {
             Dictionary<int, int> standardPaper = new Dictionary<int, int>();
             Dictionary<int, int> otherSizes = new Dictionary<int, int>();
+            
 
             fileNamesTextbox.Clear();
             standardPaper.Clear();
+            otherSizesTextbox.Clear();
+            int filesCount = 0;
+            int pagesCount = 0;
 
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Multiselect = true;
@@ -45,16 +51,20 @@ namespace SizeSumForPdf
                 foreach (var item in ofd.SafeFileNames)
                 {
                     fileNamesTextbox.Text += item + "\n";
+                    filesCount++;
                 }
                 foreach (var file in ofd.FileNames)
                 {
+                    
                     PdfReader reader = new PdfReader(file);
                      
                     for (int i = 0; i < reader.NumberOfPages; i++)
                     {
+                        pagesCount++;
                         iTextSharp.text.Rectangle rect = reader.GetPageSize(i + 1);
                         int rectLatime = (int)Math.Round(rect.Width / 72 * 25.4f, 0);
                         int rectLungime = (int)Math.Round(rect.Height / 72 * 25.4f, 0);
+
 
                         if (rectLatime > rectLungime)
                         {
@@ -62,32 +72,105 @@ namespace SizeSumForPdf
                             rectLatime = rectLungime;
                             rectLungime = temp;
                         }
-                        //switch (rectLatime)
-                        //{
-                        //    case 914:
-                        //        if (standardPaper.ContainsKey(rectLatime))
-                        //        {
-
-                        //        }
-                        //        break;
-                        //    default:
-                        //        break;
-                        //}
-
-                        if (standardPaper.ContainsKey(rectLatime))
+                        
+                        
+                            if (standardPaper.ContainsKey(rectLatime))
+                            {
+                                if (rectLatime == 210 && rectLungime == 297)
+                            {
+                                standardPaper[rectLatime] += 1;
+                            }
+                                else if(rectLatime == 297 && rectLungime == 420)
+                                {
+                                standardPaper[rectLatime] += 1;
+                            }
+                            else standardPaper[rectLatime] += rectLungime;
+                            }
+                            else
                         {
-                            standardPaper[rectLatime] += rectLungime;
-                        }
-                        else standardPaper.Add(rectLatime, rectLungime);
+                            if (rectLatime == 210 && rectLungime == 297)
+                            {
+                                standardPaper.Add(rectLatime, 1);
+                            }
+                            else if (rectLatime == 297 && rectLungime == 420)
+                            {
+                                standardPaper.Add(rectLatime, 1);
+                            }
+                            else standardPaper.Add(rectLatime, rectLungime);
+                            }
+                        
 
-                        otherSizesTextbox.Clear();
-                        foreach (KeyValuePair<int, int> item in standardPaper)
-                        {
-                            otherSizesTextbox.Text += $"{item.Key} x {(float)item.Value/1000} \n";
-                        }
+
+
+
+
                     }
                 }
             }
+
+
+
+            
+           
+            foreach (KeyValuePair<int, int> item in standardPaper)
+            {
+                if (item.Key == 210)
+                {
+                    otherSizesTextbox.Text += $"A4 = {item.Value} pages \n";
+                }
+                else if (item.Key == 297 && item.Value == 420)
+                {
+                    otherSizesTextbox.Text += $"A3 = {item.Value} pages \n";
+                }
+                else
+                {
+                    otherSizesTextbox.Text += $"{item.Key}mm x {(float)item.Value / 1000}m \n";
+                }
+
+                switch (item.Key)
+                {
+                    case 211:
+                    case 210:
+                    case 209:
+                        textBox_a4.Text += item.Value.ToString();
+                        break;
+                    case 298:
+                    case 297:
+                    case 296:
+                        textBox_a3.Text += item.Value.ToString();
+                        break;
+                    case 421:
+                    case 420:
+                    case 419:
+                        textBox_a2.Text += ((float)item.Value/1000).ToString() + " + ";
+                        break;
+                    case 595:
+                    case 594:
+                    case 593:
+                        textBox_a1.Text += ((float)item.Value / 1000).ToString() + " + ";
+                        break;
+                    case 842:
+                    case 841:
+                    case 840:
+                        textBox_a0.Text += ((float)item.Value / 1000).ToString() + " + ";
+                        break;
+                    case 915:
+                    case 914:
+                    case 913:
+                        textBox_a0plus.Text += ((float)item.Value / 1000).ToString() + " + ";
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+
+
+            //Show a message for succesful job
+            MessageBox.Show($"Done! We parsed trough {filesCount} files and {pagesCount} pages. \n" +
+                $"You can click on Copy buttons and paste to Excel!", "Succes!");
+            filesLabel.Text = filesCount.ToString();
+            pagesLabel.Text = pagesCount.ToString();
         }
     }
 }

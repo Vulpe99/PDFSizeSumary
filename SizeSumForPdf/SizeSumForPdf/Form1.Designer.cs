@@ -49,19 +49,19 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.otherSizesTextbox = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_copyFiles = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btn_copySizes = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btn_clearSizes = new System.Windows.Forms.Button();
             this.fileNamesTextbox = new System.Windows.Forms.RichTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btn_clearFiles = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.pagesLabel = new System.Windows.Forms.Label();
             this.filesLabel = new System.Windows.Forms.Label();
@@ -117,7 +117,7 @@
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.btn_clearSizes);
             this.panel2.Controls.Add(this.textBox_a2);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.textBox_a1);
@@ -125,7 +125,7 @@
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.btn_copySizes);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.otherSizesTextbox);
             this.panel2.Controls.Add(this.label6);
@@ -301,15 +301,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_copyFiles
             // 
-            this.button2.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(141, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 39);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Copy file names";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_copyFiles.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_copyFiles.Location = new System.Drawing.Point(141, 12);
+            this.btn_copyFiles.Name = "btn_copyFiles";
+            this.btn_copyFiles.Size = new System.Drawing.Size(131, 39);
+            this.btn_copyFiles.TabIndex = 15;
+            this.btn_copyFiles.Text = "Copy file names";
+            this.btn_copyFiles.UseVisualStyleBackColor = true;
+            this.btn_copyFiles.Click += new System.EventHandler(this.button2_Click);
             // 
             // label8
             // 
@@ -321,15 +322,16 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Standard paper";
             // 
-            // button3
+            // btn_copySizes
             // 
-            this.button3.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(8, 387);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(132, 41);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Copy (formatted for Excel)";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_copySizes.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_copySizes.Location = new System.Drawing.Point(8, 387);
+            this.btn_copySizes.Name = "btn_copySizes";
+            this.btn_copySizes.Size = new System.Drawing.Size(132, 41);
+            this.btn_copySizes.TabIndex = 15;
+            this.btn_copySizes.Text = "Copy (formatted for Excel)";
+            this.btn_copySizes.UseVisualStyleBackColor = true;
+            this.btn_copySizes.Click += new System.EventHandler(this.button3_Click);
             // 
             // label9
             // 
@@ -391,15 +393,16 @@
             this.label14.TabIndex = 21;
             this.label14.Text = "meters";
             // 
-            // button4
+            // btn_clearSizes
             // 
-            this.button4.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(146, 387);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 41);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "Clear";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_clearSizes.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_clearSizes.Location = new System.Drawing.Point(146, 387);
+            this.btn_clearSizes.Name = "btn_clearSizes";
+            this.btn_clearSizes.Size = new System.Drawing.Size(100, 41);
+            this.btn_clearSizes.TabIndex = 22;
+            this.btn_clearSizes.Text = "Clear";
+            this.btn_clearSizes.UseVisualStyleBackColor = true;
+            this.btn_clearSizes.Click += new System.EventHandler(this.button4_Click);
             // 
             // fileNamesTextbox
             // 
@@ -420,8 +423,8 @@
             this.panel3.Controls.Add(this.filesLabel);
             this.panel3.Controls.Add(this.pagesLabel);
             this.panel3.Controls.Add(this.label15);
-            this.panel3.Controls.Add(this.button5);
-            this.panel3.Controls.Add(this.button2);
+            this.panel3.Controls.Add(this.btn_clearFiles);
+            this.panel3.Controls.Add(this.btn_copyFiles);
             this.panel3.Controls.Add(this.fileNamesTextbox);
             this.panel3.Controls.Add(this.button1);
             this.panel3.Location = new System.Drawing.Point(264, 3);
@@ -429,15 +432,16 @@
             this.panel3.Size = new System.Drawing.Size(380, 433);
             this.panel3.TabIndex = 14;
             // 
-            // button5
+            // btn_clearFiles
             // 
-            this.button5.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(285, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(85, 39);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "Clear";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btn_clearFiles.Font = new System.Drawing.Font("Lucida Sans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_clearFiles.Location = new System.Drawing.Point(285, 12);
+            this.btn_clearFiles.Name = "btn_clearFiles";
+            this.btn_clearFiles.Size = new System.Drawing.Size(85, 39);
+            this.btn_clearFiles.TabIndex = 16;
+            this.btn_clearFiles.Text = "Clear";
+            this.btn_clearFiles.UseVisualStyleBackColor = true;
+            this.btn_clearFiles.Click += new System.EventHandler(this.button5_Click);
             // 
             // label15
             // 
@@ -549,7 +553,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_copySizes;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.RichTextBox otherSizesTextbox;
         private System.Windows.Forms.Label label6;
@@ -566,11 +570,11 @@
         private System.Windows.Forms.TextBox textBox_a0;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_copyFiles;
+        private System.Windows.Forms.Button btn_clearSizes;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RichTextBox fileNamesTextbox;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_clearFiles;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label filesLabel;
         private System.Windows.Forms.Label pagesLabel;

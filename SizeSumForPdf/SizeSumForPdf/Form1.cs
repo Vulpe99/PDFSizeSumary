@@ -13,8 +13,10 @@ using iTextSharp.text.pdf;
 
 namespace SizeSumForPdf
 {
+
     public partial class Form1 : Form
     {
+        public Dictionary<int, int> standardPaper = new Dictionary<int, int>();
         public Form1()
         {
             InitializeComponent();
@@ -32,13 +34,11 @@ namespace SizeSumForPdf
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Dictionary<int, int> standardPaper = new Dictionary<int, int>();
-            Dictionary<int, int> otherSizes = new Dictionary<int, int>();
-            
+
 
             fileNamesTextbox.Clear();
             standardPaper.Clear();
-            otherSizesTextbox.Clear();
+            ClearSizes();
             int filesCount = 0;
             int pagesCount = 0;
 
@@ -55,9 +55,8 @@ namespace SizeSumForPdf
                 }
                 foreach (var file in ofd.FileNames)
                 {
-                    
                     PdfReader reader = new PdfReader(file);
-                     
+
                     for (int i = 0; i < reader.NumberOfPages; i++)
                     {
                         pagesCount++;
@@ -72,21 +71,25 @@ namespace SizeSumForPdf
                             rectLatime = rectLungime;
                             rectLungime = temp;
                         }
-                        
-                        
-                            if (standardPaper.ContainsKey(rectLatime))
-                            {
-                                if (rectLatime == 210 && rectLungime == 297)
+
+
+                        if (standardPaper.ContainsKey(rectLatime))
+                        {
+                            if (rectLatime == 210 && rectLungime == 297)
                             {
                                 standardPaper[rectLatime] += 1;
                             }
-                                else if(rectLatime == 297 && rectLungime == 420)
-                                {
+                            else if (rectLatime == 297 && rectLungime == 420)
+                            {
                                 standardPaper[rectLatime] += 1;
+                            }
+                            else if (rectLatime == 297 && rectLungime > 430)
+                            {
+                                standardPaper[9999] += rectLatime;
                             }
                             else standardPaper[rectLatime] += rectLungime;
-                            }
-                            else
+                        }
+                        else
                         {
                             if (rectLatime == 210 && rectLungime == 297)
                             {
@@ -95,38 +98,18 @@ namespace SizeSumForPdf
                             else if (rectLatime == 297 && rectLungime == 420)
                             {
                                 standardPaper.Add(rectLatime, 1);
+                            } else if (rectLatime == 297 && rectLungime > 430)
+                            {
+                                standardPaper.Add(9999, rectLatime);
                             }
                             else standardPaper.Add(rectLatime, rectLungime);
-                            }
-                        
-
-
-
-
-
+                        }
                     }
                 }
             }
 
-
-
-            
-           
             foreach (KeyValuePair<int, int> item in standardPaper)
             {
-                if (item.Key == 210)
-                {
-                    otherSizesTextbox.Text += $"A4 = {item.Value} pages \n";
-                }
-                else if (item.Key == 297 && item.Value == 420)
-                {
-                    otherSizesTextbox.Text += $"A3 = {item.Value} pages \n";
-                }
-                else
-                {
-                    otherSizesTextbox.Text += $"{item.Key}mm x {(float)item.Value / 1000}m \n";
-                }
-
                 switch (item.Key)
                 {
                     case 211:
@@ -142,7 +125,7 @@ namespace SizeSumForPdf
                     case 421:
                     case 420:
                     case 419:
-                        textBox_a2.Text += ((float)item.Value/1000).ToString() + " + ";
+                        textBox_a2.Text += ((float)item.Value / 1000).ToString() + " + ";
                         break;
                     case 595:
                     case 594:
@@ -159,7 +142,11 @@ namespace SizeSumForPdf
                     case 913:
                         textBox_a0plus.Text += ((float)item.Value / 1000).ToString() + " + ";
                         break;
+                    case 9999:
+                        textBox_a3Rola.Text += ((float)item.Value / 1000).ToString() + " + ";
+                        break;
                     default:
+                        otherSizesTextbox.Text += $"{item.Key}mm x {(float)item.Value / 1000}m \n";
                         break;
                 }
             }
@@ -171,6 +158,51 @@ namespace SizeSumForPdf
                 $"You can click on Copy buttons and paste to Excel!", "Succes!");
             filesLabel.Text = filesCount.ToString();
             pagesLabel.Text = pagesCount.ToString();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            fileNamesTextbox.Clear();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ClearSizes();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder(standardPaper.Count * 5);
+            sb.AppendLine("Page size\tLength (m)");
+            foreach (KeyValuePair<int, int> kvp in standardPaper)
+            {
+                string rand = kvp.Key + "\t" + kvp.Value;
+                sb.AppendLine(rand);
+            }
+            if (sb.Length > 0)
+            {
+                Clipboard.Clear();
+                Clipboard.SetText(sb.ToString());
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (!(fileNamesTextbox.Text == null))
+            {
+                Clipboard.Clear();
+                Clipboard.SetText(fileNamesTextbox.Text);
+            }
+        }
+
+        private void ClearSizes() {
+            otherSizesTextbox.Clear();
+            textBox_a4.Clear();
+            textBox_a3.Clear();
+            textBox_a2.Clear();
+            textBox_a1.Clear();
+            textBox_a0.Clear();
+            textBox_a0plus.Clear();
         }
     }
 }

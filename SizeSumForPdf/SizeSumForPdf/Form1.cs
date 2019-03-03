@@ -16,5 +16,13 @@ namespace SizeSumForPdf
         {
             InitializeComponent();
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Thank you for using this app!\n" +
+                "For the latest version, visit: \n" +
+                "https://github.com/Vulpe99/SizeSummaryForPDF \n" +
+                "Created by Marius Labau", "About");
+        }
     }
 }
